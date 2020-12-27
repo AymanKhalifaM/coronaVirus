@@ -16,7 +16,7 @@ export class CoronaComponent implements OnInit {
   date;
   countryData;
   error;
-  moka
+
   constructor(private corona: CoronaService) { }
 
   ngOnInit() {
@@ -30,9 +30,7 @@ export class CoronaComponent implements OnInit {
 
   }
 
-  onChange() {
-    this.moka = true
-  }
+
 
   getCountryStatus(country) {
     this.corona.getData(country).subscribe((d: any) => {

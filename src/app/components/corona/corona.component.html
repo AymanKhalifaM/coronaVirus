@@ -14,7 +14,7 @@
       <div class="row">
         <div class="col row justify-content-center">
           <div class="input-group">
-            <select [(ngModel)]="theCountry" (change)="onChange()" class="custom-select">
+            <select [(ngModel)]="theCountry" class="custom-select">
               <option *ngFor="let country of countires" value="{{ country.Slug  }}">
                 {{ country.Country  }}
               </option>
