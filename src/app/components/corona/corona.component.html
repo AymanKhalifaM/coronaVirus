@@ -1,0 +1,70 @@
+<header class="header">
+  <div class="container">
+    <div class="row">
+      <div class="col row justify-content-center">
+        <h1 class="text-primary tracking-in-contract-bck-top">CoronVirus Status</h1>
+      </div>
+    </div>
+    <section class="section-head">
+      <div class="row">
+        <div class="col row justify-content-center">
+          <h4 class="text-primary heartbeat">Choose Country</h4>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col row justify-content-center">
+          <div class="input-group">
+            <select [(ngModel)]="theCountry" (change)="onChange()" class="custom-select">
+              <option *ngFor="let country of countires" value="{{ country.Slug  }}">
+                {{ country.Country  }}
+              </option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="section-head">
+      <div class="row">
+        <div class="col row justify-content-center">
+          <button class="btn btn-primary" (click)="getCountryStatus(theCountry)">
+            Get CoronaVirus Status
+          </button>
+        </div>
+      </div>
+      <section class="section-head">
+        <span class=" alert alert-danger" *ngIf="error">{{error}}</span>
+      </section>
+    </section>
+    <section class="section-head">
+      <div class="row">
+        <div class="col row justify-content-center">
+          <h1 *ngIf="countryData" class="text-primary text-focus-in">
+            CoronVirus Status in {{ countryData }} on
+            {{ date | date: "fullDate" }}
+          </h1>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col row justify-content-center">
+          <h2 *ngIf="confirmedData" class="text-primary text-focus-in">
+            Total Confirmed : {{ confirmedData }}
+          </h2>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col row justify-content-center">
+          <h2 *ngIf="recoveredData" class="text-primary text-focus-in">
+            Total Recovered : {{ recoveredData }}
+          </h2>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col row justify-content-center">
+          <h2 *ngIf="deathsData" class="text-primary text-focus-in">
+            Total Deaths : {{ deathsData }}
+          </h2>
+        </div>
+      </div>
+    </section>
+  </div>
+</header>
